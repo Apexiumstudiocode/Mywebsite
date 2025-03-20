@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Praise Educational Complex</title>
+        <link rel="stylesheet" href="Praiseeducatiocomplex.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+        <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    </head>
+    <body>
+        <section class="header"> 
+            <nav>
+                <a href="praiseedu.html"><img src="images/image8.jpg" alt="School Logo"></a> 
+                <div class="nav-links" id="navlinks">
+                    <i class="fa fa-times" onclick="hideMenu()"></i>
+                    <ul>
+                        <li><a href="Praiseeducation.html">Home</a></li>
+                        <li><a href="About.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="Login.html">Login</a></li>
+                    </ul>
+                </div>
+                <i class="fa fa-bars" onclick="showMenu()"></i>
+            </nav>
+
+            <section class="contact">
+                <div class="contact-process">
+                    <h4>Contact Details</h4>
+                    <form id="contactForm" onsubmit="sendMessage(event)">
+                        <div class="group-form">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" placeholder="Enter your name" required>
+                        </div>
+
+                        <div class="group-form">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" placeholder="Enter your email" required>
+                        </div>
+
+                        <div class="group-form">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" placeholder="Enter subject" required>
+                        </div> 
+
+                        <div class="group-form">
+                            <label for="message">Message</label>
+                            <textarea id="message" placeholder="Enter your message" required></textarea>
+                        </div>
+
+                        <div class="group-form">
+                            <button type="submit">Send Message</button>
+                        </div>
+                    </form>
+                    <div id="successMessage" class="success-message"></div>
+                </div>   
+
+                <footer class="footer">
+                    <div class="section footer_section">
+                        <div class="footer_col">
+                            <div class="logo">
+                                <a href="#">
+                                  
+                                </a>
+                            </div>
+            
+                             <p class="desc">
+                                This institution academy has a great misssion and vision that shapenning Childrens to build thier dreams  and to raise leaders for the community to influence thier peers.<br> 
+                                <br>1. Raise leaders for the communit.
+                                <br>2. Shape their vision.
+                                <br>3. To influence their peers.
+                            </p>
+            
+                            <button class="btn">read more</button>
+                        </div> 
+            
+                        <div class="footer_col">
+                            <h4>company</h4>
+                            <ul class="footer_links">
+                                <li><a href="#">About</a></li>
+                                <li><a href="#">Careers</a></li>
+                                <li><a href="#">Press conference</a></li>
+                                <li><a href="#">Blog</a></li>
+                                <li><a href="#">Policy Privacy</a></li>
+                            </ul>
+                        </div>
+            
+                        <div class="footer_col">
+                            <h4>Collaborating with the company</h4>
+                            <ul class="footer_links">
+                                <li><a href="#">Collaboration hub</a></li>
+                                <li><a href="#">Collaboration portal</a></li>
+                                <li><a href="#">Accredited/affiliated</a></li>
+                                <li><a href="#">Advertisement</a></li>
+                                <li><a href="#">Partnership</a></li>
+                            </ul>
+                        </div>
+            
+                        <div class="footer_col">
+                            <h4>Contact us on</h4>
+                            <ul class="footer_links">
+                                <li><a href="#">Praiseeducationalcomplex@info.com</a></li>
+                            </ul>
+            
+                            <div class="socials">
+                                <a href="#"><i class="fab fa-twitter"></i></a>
+                                <a href="#"><i class="fab fa-facebook"></i></a>
+                                <a href="#"><i class="fab fa-youtube"></i></a>
+                                <a href="#"><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+            
+                    <div class="copyright">
+                        copyright &#169; 2025 @Praiseeducationalcomplex. All rights reserved. 
+                    </div>
+                </footer>
+            </section>
+        </section>
+
+        <script>
+            // Initialize EmailJS
+            (function() {
+                emailjs.init("d8-90lCBIuhSzpFbl");
+            })();
+
+            // Form submission handler
+            function sendMessage(e) {
+                e.preventDefault();
+
+                const serviceID = "service_pbdbi0b";
+                const templateID = "template_5zdjfe6";
+
+                const params = {
+                    from_name: document.getElementById("name").value,
+                    from_email: document.getElementById("email").value,
+                    subject: document.getElementById("subject").value,
+                    message: document.getElementById("message").value,
+                };
+
+                emailjs.send(serviceID, templateID, params)
+                    .then(function(response) {
+                        const successMessage = document.getElementById("successMessage");
+                        successMessage.style.display = "block";
+                        successMessage.textContent = "Thank you, " + params.from_name + "! Your message has been sent.";
+                        document.getElementById("contactForm").reset();
+                    })
+                    .catch(function(error) {
+                        console.error("Error sending email:", error);
+                        alert("Sorry, there was an error sending your message. Please try again later.");
+                    });
+            }
+
+            // Mobile menu functions
+            function showMenu() {
+                document.getElementById("navlinks").style.right = "0";
+            }
+
+            function hideMenu() {
+                document.getElementById("navlinks").style.right = "-200px";
+            }
+        </script>
+    </body>
+</html>
+
+           
